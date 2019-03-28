@@ -1,0 +1,35 @@
+
+a {
+    color:#60084E;
+}
+
+.mui-input-group label {
+    text-align: center;
+}
+
+.mui-content-padded {
+    margin-top: 18px;
+}
+
+.mui-btn {
+    padding:4px;
+    background-color:#60084E;
+    color: white;
+}
+
+.link-area {
+    display: block;
+    margin-top: 18px;
+    text-align: center;
+}
+
+.top-pic {
+    text-align: center;
+    margin-top: 140px;
+    margin-bottom: 10px;
+}
+
+#reg,#reg-back,#find,#find-back {
+    width: 49%;
+    padding:6px;
+}

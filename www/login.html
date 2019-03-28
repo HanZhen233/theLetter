@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html class="ui-page-login">
+	
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+		<title>信客-用户登录</title>
+		<link href="css/mui.min.css" rel="stylesheet"/>
+		<link href="css/login.css" rel="stylesheet"/>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<div class="top-pic">
+			<img src="img/logo1.png"width="125"height="125"/>
+		</div>
+		<div class="mui-content">
+			<form id='login-form' class="mui-input-group">
+				<div class="mui-input-row">
+					<label>账号</label>
+					<input id='login-account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input id='login-password' type="password" class="mui-input-clear mui-input-clear" placeholder="请输入密码">
+				</div>
+			</form>
+			<div class="mui-content-padded">
+				<!-- 暂无登录验证，设置为简单超链接 -->
+				<a href="index.html" target="_self"><button id='login'class="mui-btn mui-btn-block">登录</button></a>
+				<div class="link-area">
+					<a id='login-reg' href="reg.html" target="_self">新用户注册</a>
+					<i>|</i>
+					<a id='login-forgot' href="forgot.html" target="_self">找回密码</a>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
