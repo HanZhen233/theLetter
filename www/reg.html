@@ -13,6 +13,21 @@
 		<script type="text/javascript"charset="utf-8">
 			mui.init();
 		</script>
+		<style>
+			/* 性别按钮组样式设置 */
+			 .radio_inline {
+				display: inline-block;
+            }
+			.radio_inline label {
+				width:1px;
+			}
+			.radio_inline input[type=radio] {
+                right:auto;
+            }
+			.change .mui-radio input[type='radio']:checked:before {
+            	color:#60084e;
+            }
+		</style>
 
 	</head>
 
@@ -38,6 +53,15 @@
 				<div class="mui-input-row">
 					<label>确认</label>
 					<input id='reg-password-confirm' type="password" class="mui-input-clear mui-input" placeholder="请确认密码">
+				</div>
+				<div class="mui-input-row change">
+					<label>性别</label>
+					<span class="radio_inline mui-radio">
+						<input name="radio1"type="radio"id="radio_man"checked value="1">
+						<label for="radio_man">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp男</label>
+						<input name="radio1"type="radio"id="radio_woman"value="0">     
+						<label for="radio_woman">女</label>        
+					</span>            
 				</div>
 				<div class="mui-input-row">
 					<label>邮箱</label>
