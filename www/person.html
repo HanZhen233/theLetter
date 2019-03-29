@@ -1,36 +1,112 @@
 
 <!DOCTYPE html>
 <html class="ui-page-person">
-	
+
 	<head>
+
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
 		<title>信客-个人中心</title>
-		<link href="css/mui.min.css" rel="stylesheet"/>
+		<link href="css/mui.min.css"rel="stylesheet"/>
 		<script src="js/mui.min.js"></script>
-		<script type="text/javascript" charset="utf-8">
+		<script type="text/javascript"charset="utf-8">
 			mui.init();
 		</script>
-		<!-- <script src="js/page-change.js"></script> -->
+		<style>
+			/* 功能列表文字 */
+			span {
+				font-size:18px;
+				color:black;
+				margin:6px;
+			}
+			/* 功能列表图标 */
+			.imglist {
+				height:28px;
+				width:28px;
+				vertical-align:middle; 
+			}
+			/* 分割容器 */
+			.divide {
+				margin:20px;
+			}
+		</style>
+
 	</head>
 
 	<body>
 
+		<!-- 用户信息区域 -->
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<img style="margin:15px;height:60px;width:60px;"class="mui-pull-right"src="img/user2.png"/>
+				<div style="font-size:20px;color:#60084e;margin:15px;">用户X</div>
+				<div style="font-size:14px;color:grey;margin:15px;">我不曾记得，你的名字。</div>
+			</li>
+		</ul>
+		
+		<!-- 分割容器1 -->
+		<div class="divide"></div>
+		
+		<!-- 其他功能区 -->
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<img class="imglist"src="img/community.png">
+				<span>社区</span>
+			</li>
+			<li class="mui-table-view-cell">
+				<img class="imglist"src="img/store.png">
+				<span>商城</span>
+			</li>
+			<li class="mui-table-view-cell">
+				<img class="imglist"src="img/stamp.png">
+				<span>邮票</span>
+			</li>
+			<li class="mui-table-view-cell">
+				<img class="imglist"src="img/score.png">
+				<span>积分</span>
+			</li>
+		</ul>
+
+		<!-- 分割容器2 -->
+		<div class="divide"></div>
+
+		<!-- 通知 -->
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<img class="imglist"src="img/notice.png">
+				<span>通知</span>
+			</li>
+		</ul>
+		
+		<!-- 分割容器3 -->
+		<div class="divide"></div>
+
+		<!-- 设置 -->
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<img class="imglist"src="img/setting.png">
+				<span>设置</span>
+			</li>
+		</ul>
+		
+		<!-- 底部tabs -->
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item"href="index.html"target="_self">
-				<span class="mui-icon mui-icon-home"></span>
-				<!-- <span class="mui-tab-label">首页</span> -->
+				<img src="img/index-dark.png"width="30"height="30"/>
 			</a>
-			<a class="mui-tab-item  mui-active">
-				<span class="mui-icon mui-icon-email"></span>
-				<!-- <span class="mui-tab-label">信件</span> -->
+			<a class="mui-tab-item"href="letter.html"target="_self">
+				<img src="img/letter-dark.png"width="35"height="30"/>
 			</a>
-			<a class="mui-tab-item"href="person.html"target="_self">
-				<span class="mui-icon mui-icon-person"></span>
-				<!-- <span class="mui-tab-label">个人中心</span> -->
+			<a class="mui-tab-item">
+				<img src="img/person-light.png"width="30"height="30"/>
 			</a>
 		</nav>
-	
+
+		<!-- 解除mui-tab超链限制 -->
+		<script type="text/javascript">
+			mui('body').on('tap','a',function(){document.location.href=this.href;});
+		</script>
+		
 	</body>
 
 </html>
