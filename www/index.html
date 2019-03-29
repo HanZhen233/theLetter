@@ -3,10 +3,11 @@
 <html class="ui-page-index">
 	
 	<head>
+
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
 		<title>信客-主页面</title>
-        <link href="css/mui.min.css" rel="stylesheet"/>
+        <link href="css/mui.min.css"rel="stylesheet"/>
         <script src="js/mui.min.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
@@ -14,26 +15,51 @@
         </script>
         <!-- <script src="js/page-change.js"></script> -->
         <script type="text/javascript" src="js/letter.js"></script>
+        <style>
+            /* 首页背景图片插入  */
+            body {
+                margin: 0;
+                background-image: url("img/index-background.png");
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+                background-position:0% 0%;
+                background-size:cover;
+            }
+            /* 头部容器 */
+            .divhead{
+                color:#60084e;
+                padding:30px;
+                font-size:30px;
+            }
+        </style>
 	</head>
 
 	<body>
-		<button onclick="sendLetter()">发信测试</button>
+
+        <!-- 头部标题及按钮 -->
+        <div class="divhead">
+            <span>信客</span>
+            <img src="img/write.png"height="25"width="30"style="float:right"/>
+        </div>
+        
+        <!-- 底部tabs -->
+
 		<nav class="mui-bar mui-bar-tab">
-            <a class="mui-tab-item mui-active">
-                <span class="mui-icon mui-icon-home"></span>
-                <!-- <span class="mui-tab-label">首页</span> -->
+            <a class="mui-tab-item">
+                <img src="img/index-light.png"width="30"height="30"/>
             </a>
             <a class="mui-tab-item"href="letter.html"target="_self">
-                <span class="mui-icon mui-icon-email"></span>
-                <span>
-                </span>
-                <!-- <span class="mui-tab-label">信件</span> -->
+                <img src="img/letter-dark.png"width="35"height="30"/>
             </a>
             <a class="mui-tab-item"href="person.html"target="_self">
-                <span class="mui-icon mui-icon-person"></span>
-                <!-- <span class="mui-tab-label">个人中心</span> -->
+                <img src="img/person-dark.png"width="30"height="30"/>
             </a>
-		</nav>
+        </nav>
+
+        <!-- 解除mui-tab超链限制 -->
+        <script type="text/javascript">
+            mui('body').on('tap','a',function(){document.location.href=this.href;});
+        </script>
 		
 	</body>
 

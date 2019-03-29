@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.hanzhen.cordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.whut.xinke" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>theLetter</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A simple APP made by WHUT students.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="WHUT@whut.edu.cn" href="http://cst.whut.edu.cn/">
+        WHUT Team
     </author>
     <content src="login.html" />
     <access origin="*" />
@@ -18,10 +18,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
-    <engine name="android" spec="^6.3.0" />
+    <engine name="android" spec="^8.0.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="cordova-plugin-file" spec="1" />
 </widget>

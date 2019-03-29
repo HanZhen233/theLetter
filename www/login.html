@@ -1,11 +1,13 @@
 
 <!DOCTYPE html>
 <html class="ui-page-login">
+	<head>
+
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
 		<title>信客-用户登录</title>
-		<link href="css/mui.min.css" rel="stylesheet"/>
-		<link href="css/login.css" rel="stylesheet"/>
+		<link href="css/mui.min.css"rel="stylesheet"/>
+		<link href="css/login.css"rel="stylesheet"/>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 		<!--<script type="text/javascript" src="cordova.js"></script>-->
@@ -13,13 +15,19 @@
 			mui.init();
 		</script>
 		<script type="text/javascript" src="js/login.js"></script>
+
 	</head>
 
 	<body>
+
+		<!-- 顶部图片 -->
 		<div class="top-pic">
 			<img src="img/logo1.png"width="125"height="125"/>
 		</div>
+
+		<!-- 主功能区 -->
 		<div class="mui-content">
+			<!-- 输入区 -->
 			<form id='login-form' class="mui-input-group">
 				<div class="mui-input-row">
 					<label>账号</label>
@@ -30,9 +38,11 @@
 					<input id='login-password' type="password" class="mui-input-clear mui-input-clear" placeholder="请输入密码">
 				</div>
 			</form>
+			<!-- 按钮区 -->
 			<div class="mui-content-padded">
 				<!-- 登陆 -->
 				<button id="login" class="mui-btn mui-btn-block" onclick="login()">登录</button></a>
+
 				<div class="link-area">
 					<a id='login-reg' href="reg.html" target="_self">新用户注册</a>
 					<i>|</i>
@@ -40,6 +50,7 @@
 				</div>
 			</div>
 		</div>
+
 	</body>
 
 </html>

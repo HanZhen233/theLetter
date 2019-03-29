@@ -1,21 +1,23 @@
 {
-  "name": "com.hanzhen.cordova",
+  "name": "xinke",
   "displayName": "theLetter",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "index.js",
+  "description": "A simple APP made by WHUT students.",
+  "main": "mui.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Apache Cordova Team",
+  "author": "WHUT",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-android": "^6.3.0",
-    "cordova-plugin-whitelist": "^1.3.3"
+    "cordova-android": "^8.0.0",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-file": "1"
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-file": {}
     },
     "platforms": [
       "android"
