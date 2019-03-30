@@ -8,10 +8,52 @@
 		<meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
 		<title>信客-收信</title>
 		<link href="css/mui.min.css"rel="stylesheet"/>
-		<script src="js/mui.min.js"></script>
-		<script type="text/javascript"charset="utf-8">
+        <script src="js/mui.min.js"></script>
+        <script type="text/javascript"charset="utf-8">
 			mui.init();
-		</script>
+        </script>
+        <style>
+            body,textarea {
+                background-color: #fbf7ec;
+                color:gray;
+                border:none;
+            }
+            .mui-action-back {
+                color:#60084e;
+            }
+            .mui-icon {
+                color:#60084e;
+            }
+            .mui-title {
+                color:#60084e;
+                text-align: left;
+            }
+            .dynamic {
+                color:black;
+                font-family: "楷体","楷体_GB2312","宋体";
+                font-size:20px;
+            }
+            #popover {
+                width:100px;
+            }
+            #address-from {
+                padding-top:70px;
+                padding-left:20px;
+            }
+            #sender-from {
+                padding-right:20px;
+                text-align: right;
+            }
+            #time-from {
+                padding-right:20px;
+                text-align: right;
+            }
+            #letterdef-from {
+                padding-left:20px;
+                font-family: "楷体","楷体_GB2312","宋体";
+                height:130px;
+            }
+        </style>
 
 	</head>
 
@@ -19,23 +61,41 @@
 
         <!-- 顶部导航栏 -->
         <header class="mui-bar mui-bar-nav mui-bar-nav-bg">
-            <a id="icon-menu" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-            <a class="mui-action-back mui-icon mui-icon-home mui-pull-right mui-a-color"></a>
-            <h1 class="mui-title">给TA写信</h1>
+            <!-- 点击返回键超链至首页 -->
+            <a id="icon-menu"class="mui-action-back mui-icon mui-icon-left-nav"href="index.html"></a>
+            <!-- 点击弹出右上菜单按钮 -->
+            <a class="mui-icon mui-icon-more mui-pull-right"href="#popover"></a>
+            <h1 class="mui-title">来自TA的信</h1>
         </header>
+        
+        <!-- 主功能区 -->
+        <p class="dynamic"id="address-from">亲爱的某某朋友：</p>
+        <textarea id="letterdef-from">八百标兵奔北坡，炮兵并排北坡跑。&#10炮兵怕把标兵碰，标兵怕碰炮兵炮。</textarea>
+        <p class="dynamic"id="sender-from">发件人某某</p>
+        <p class="dynamic"id="time-from">2020.1.1</p>
 
 		<!-- 底部tabs -->
 		<nav class="mui-bar mui-bar-tab">
             <a class="mui-tab-item"href="index.html"target="_self">
-                <img src="img/index-dark.png"width="30"height="30"/>
+                <img src="img/index-dark.png"width="20"height="20"/>
             </a>
             <a class="mui-tab-item">
-                <img src="img/letter-light.png"width="35"height="30"/>
+                <img src="img/letter-light.png"width="25"height="20"/>
             </a>
             <a class="mui-tab-item"href="person.html"target="_self">
-                <img src="img/person-dark.png"width="30"height="30"/>
+                <img src="img/person-dark.png"width="20"height="20"/>
             </a>
-		</nav>
+        </nav>
+
+        <!-- 右上角点击弹出菜单 -->
+        <div id="popover" class="mui-popover">
+            <ul class="mui-table-view">
+                <!-- 超链至写信界面 -->
+                <li class="mui-table-view-cell"><a href="letter-write.html"style="color:black;text-align:center;">回复</a></li>
+                <!-- 删除信件应弹出确认警告框 -->
+                <li class="mui-table-view-cell"><a style="color:red;text-align:center;">删除信件</b></li>
+            </ul>
+        </div>
 
 		<!-- 解除mui-tab超链限制 -->
 		<script type="text/javascript">
