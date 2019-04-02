@@ -14,6 +14,7 @@
 			mui.init();
         </script>
         <!-- <script src="js/page-change.js"></script> -->
+        <script type="text/javascript" src="js/url_str.js"></script>
         <script type="text/javascript" src="js/letter.js"></script>
         <style>
             /* 首页背景图片插入  */
@@ -23,7 +24,8 @@
                 background-repeat:no-repeat;
                 background-attachment:fixed;
                 background-position:0% 0%;
-                background-size:cover;
+                background-size:cover; 
+                background-color: #fbfbfb;
             }
             /* 头部容器 */
             .divhead{
@@ -39,20 +41,20 @@
         <!-- 头部标题及按钮 -->
         <div class="divhead">
             <span>信客</span>
-            <img src="img/write.png"height="25"width="30"style="float:right"/>
+            <a href="letter-write.html"><img src="img/write.png"height="25"width="30"style="float:right"/></a>
         </div>
         
         <!-- 底部tabs -->
 
 		<nav class="mui-bar mui-bar-tab">
             <a class="mui-tab-item">
-                <img src="img/index-light.png"width="30"height="30"/>
+                <img src="img/index-light.png"width="20"height="20"/>
             </a>
             <a class="mui-tab-item"href="letter.html"target="_self">
-                <img src="img/letter-dark.png"width="35"height="30"/>
+                <img src="img/letter-dark.png"width="25"height="20"/>
             </a>
             <a class="mui-tab-item"href="person.html"target="_self">
-                <img src="img/person-dark.png"width="30"height="30"/>
+                <img src="img/person-dark.png"width="20"height="20"/>
             </a>
         </nav>
 
