@@ -57,13 +57,43 @@ function getLetterList() {
     });
 
 }
+/*返回新建的简略信息*/
+function simpleMessage(messages) {
+   var _content=messages[messages.length-1]["content"];
+   if (_content!=null)
+    if (_content.length>15)
+    return _content.substring(0,16);
+   else
+       return _content;
+}
+function listLetterInfo(nameId,_simpleMessage) {
+
+}
 /*从存储中获取信件相关信息*/
+/*属于自己发送并且接受者为为0（没有接受者）
+* 如果对方发送，显示对方id，
+* 如果自己发送，显示对方id
+*
+* */
 function displayLetters() {
+    var userInfo=JSON.parse(localStorage.getItem("userInfo"));
+    var userId=userInfo["userId"]
     var letters=JSON.parse(localStorage.getItem("letters"));
     for (var index in letters){
-        alert(JSON.stringify(letters[index]))
+        var letter= letters[index];//信件
+        var messages=letter["messages"];
+        // alert(JSON.stringify(letters[index]))
+       var senderId= letter["senderId"];
+       var receiverId=letter["receiverId"];
+       if (senderId==userId&& receiverId!=0){
+           var _simpleMessage=simpleMessage(messages);
+           listLetterInfo(receiverId,_simpleMessage);
+       }else if (senderId!=userId){
+           var _simpleMessage=simpleMessage(messages);
+           listLetterInfo(receiverId,_simpleMessage);
+       }
     }
+
     // $("#")
-    
 
 }
