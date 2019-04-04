@@ -10,12 +10,35 @@
         <link href="css/mui.min.css"rel="stylesheet"/>
         <script src="js/mui.min.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-		<script type="text/javascript" charset="utf-8">
-			mui.init();
-        </script>
-        <!-- <script src="js/page-change.js"></script> -->
         <script type="text/javascript" src="js/url_str.js"></script>
         <script type="text/javascript" src="js/letter.js"></script>
+        <script type="text/javascript" charset="utf-8">
+			mui.init({
+                pullRefresh : {
+                    container:"#refreshContainer",  
+                    down : {    
+                        style:'circle',
+                        color:'#60084E',
+                        contentdown : "下拉收取新信件",
+                        contentover : "释放开始收取",
+                        contentrefresh : "收信中...",
+                        callback : function(){
+                            // 无新信件
+                            // mui.alert("当前无新信件");
+                            // 存在新信件
+                            mui.confirm('存在新信件，是否收取？', '', ['拒收','接收'], function(e) {  
+                                if(e.index == 0) {  
+                                    alert("已拒收");                                      
+                                }else{  
+                                    alert("已接收");
+                                }  
+                            });  
+                            mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+                        }   
+                    }
+                }
+            });
+        </script>
         <style>
             /* 首页背景图片插入  */
             body {
@@ -34,18 +57,21 @@
                 font-size:30px;
             }
         </style>
+
 	</head>
 
-	<body onload="getLetterList()">
+    <body onload="getLetterList()">
 
-        <!-- 头部标题及按钮 -->
-        <div class="divhead">
-            <span>信客</span>
-            <a href="letter-write.html"><img src="img/write.png"height="25"width="30"style="float:right"/></a>
+        <!-- 下拉刷新容器 -->
+        <div id="refreshContainer">
+            <!-- 头部标题及按钮 -->
+            <div class="divhead mui-scroll">
+                <span>信客</span>
+                <a href="letter-write.html"><img src="img/write.png"height="25"width="30"style="float:right"/></a>
+            </div>
         </div>
         
         <!-- 底部tabs -->
-
 		<nav class="mui-bar mui-bar-tab">
             <a class="mui-tab-item">
                 <img src="img/index-light.png"width="20"height="20"/>
