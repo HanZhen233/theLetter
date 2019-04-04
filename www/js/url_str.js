@@ -8,4 +8,7 @@ var addUserURL=URLStr+"addUser";
 var getLetterListURL=URLStr+"getLetterList";
 //发送信件
 var sendLetterURL=URLStr+"sendLetter";
-
+//获得并锁定某一信件
+var receiverLetterURL=URLStr+"receiverLetter";
+//解锁某一信件
+var unlockLetterURL=URLStr+"unlockLetter";

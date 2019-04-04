@@ -37,9 +37,9 @@ function sendLetter() {
             alert("发送失败")
         }
     });
-
 }
 /*获得所有的自己发送或者收到的信件*/
+
 function getLetterList() {
     $.ajax({
         url: getLetterListURL,
@@ -66,9 +66,20 @@ function simpleMessage(messages) {
    else
        return _content;
 }
-function listLetterInfo(nameId,_simpleMessage) {
-
+/*展示相关的信息*/
+function listLetterInfo(letterId,_simpleMessage) {
+    var letterInfo='<li id=letterId class=\"mui-table-view-cell\" onclick=\"\" >\n" +
+        "\t\t\t\t\t<img class=\"mui-media-object mui-pull-left\"src=\"img/envelope-male.png\"/>\n" +
+        "\t\t\t\t\t<div class=\"mui-media-body\">\n" +
+        "\t\t\t\t\t\t<span>信客·letterId</span>\n" +
+        "\t\t\t\t\t\t<p>simpleMessage</p>\n" +
+        "\t\t\t\t\t</div>\n" +
+        "\t\t\t\t</a>\n" +
+        "\t\t\t</li>';
+    $("#letterList").append(letterInfo);
 }
+
+
 /*从存储中获取信件相关信息*/
 /*属于自己发送并且接受者为为0（没有接受者）
 * 如果对方发送，显示对方id，
@@ -76,24 +87,45 @@ function listLetterInfo(nameId,_simpleMessage) {
 *
 * */
 function displayLetters() {
-    var userInfo=JSON.parse(localStorage.getItem("userInfo"));
-    var userId=userInfo["userId"]
-    var letters=JSON.parse(localStorage.getItem("letters"));
-    for (var index in letters){
-        var letter= letters[index];//信件
-        var messages=letter["messages"];
+    var userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    var userId = userInfo["userId"]
+    var letters = JSON.parse(localStorage.getItem("letters"));
+    for (var index in letters) {
+        var letter = letters[index];//信件
+        var messages = letter["messages"];
         // alert(JSON.stringify(letters[index]))
-       var senderId= letter["senderId"];
-       var receiverId=letter["receiverId"];
-       if (senderId==userId&& receiverId!=0){
-           var _simpleMessage=simpleMessage(messages);
-           listLetterInfo(receiverId,_simpleMessage);
-       }else if (senderId!=userId){
-           var _simpleMessage=simpleMessage(messages);
-           listLetterInfo(receiverId,_simpleMessage);
-       }
-    }
+        var senderId = letter["senderId"];
+        var receiverId = letter["receiverId"];
+        var letterId = letter["letterId"]
+        if (senderId == userId && receiverId != 0 || senderId != userId) {
+            var _simpleMessage = simpleMessage(messages);
+            mui.toast("haha");
+            listLetterInfo(letterId, _simpleMessage);
+        }
 
-    // $("#")
+    }
+}
+
+function getALetter() {
+    $.ajax({
+        url: receiverLetterURL,
+        type: "GET",
+        crossDomain: true,
+        xhrFields: {withCredentials: true},
+        success: function (letter) {
+            if (letter == null)
+                mui.toast("没有信件");
+            else {
+
+                var letters = JSON.parse(localStorage.getItem("letters"));
+                letters.push(letter);
+                localStorage.setItem("letters", JSON.stringify(letters));
+            }
+
+        },
+        error: function () {
+            alert("网络错误")
+        }
+    });
 
 }
