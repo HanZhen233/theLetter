@@ -22,19 +22,10 @@
                         contentdown : "下拉收取新信件",
                         contentover : "释放开始收取",
                         contentrefresh : "收信中...",
-                        callback : function(){
-                            // 无新信件
-                            // mui.alert("当前无新信件");
-                            // 存在新信件
-                            mui.confirm('存在新信件，是否收取？', '', ['拒收','接收'], function(e) {  
-                                if(e.index == 0) {  
-                                    alert("已拒收");                                      
-                                }else{  
-                                    alert("已接收");
-                                }  
-                            });  
+                        callback :function () {
+                            getALetter()
                             mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
-                        }   
+                        }
                     }
                 }
             });

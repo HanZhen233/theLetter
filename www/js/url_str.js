@@ -12,3 +12,5 @@ var sendLetterURL=URLStr+"sendLetter";
 var receiverLetterURL=URLStr+"receiverLetter";
 //解锁某一信件
 var unlockLetterURL=URLStr+"unlockLetter";
+// 回复消息(信件)
+var sentMessageURL=URLStr+"sentMessage";
