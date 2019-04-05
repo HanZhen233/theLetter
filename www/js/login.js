@@ -31,9 +31,8 @@ function addUser() {
         mui.alert("密码不一致！");
         return;
     }
-    var gender="0";
+    var gender=$("input[name='radio1']:checked").val();
     var email=$("#reg-email").val();
-
     $.ajax({
         url: addUserURL,
         type: "POST",
@@ -49,7 +48,7 @@ function addUser() {
         success: function(data) {
             // alert(JSON.stringify(data)),
             if (data.toString()=="true"){
-                mui.alert("注册成功");
+                mui.toast("注册成功");
                 location.href="login.html";
             }
             else{   mui.alert("用户已经存在")
