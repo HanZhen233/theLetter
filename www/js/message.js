@@ -42,7 +42,7 @@ function displayMessages() {
 /*展示每条消息*/
 function listMessage(_message,_sender,_receiver) {
 
-    var messageInfo="<p class=\"dynamic\" class='address-from'>亲爱的："+_receiver+"</p>\n" +
+    var messageInfo="<p class=\"dynamic\" class='address-from'>亲爱的"+_receiver+"：</p>\n" +
         "        <textarea class=\"letterdef-from\">"+_message["content"]+"</textarea>\n" +
         "        <p class=\"dynamic\"id=\"sender-from\">"+_sender+"</p>\n" +
         "        <p class=\"dynamic\"id=\"time-from\">"+_message["timestamp"]+"</p>"

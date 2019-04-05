@@ -18,7 +18,7 @@ function login() {
             location.href="index.html";
         },
         error: function() {
-            mui.alert("账户或密码错误")
+            mui.alert("账号或密码错误")
         }
     });
 }

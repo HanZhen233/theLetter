@@ -128,7 +128,12 @@ function getLetterList() {
 function displayLetters() {
     var userInfo = JSON.parse(localStorage.getItem("userInfo"));
     var userId = userInfo["userId"];
+
     var letters = JSON.parse(localStorage.getItem("letters"));
+    if(letters==null||letters==[]||letters=={}){
+        $("#letterList").append("<p style=‘text-align:center;’>当前无信件</p>");
+        return;
+    }
     for (var index in letters) {
         var letter = letters[index];//信件
         var messages = letter["messages"];
@@ -173,19 +178,15 @@ function toLetter(_letterId) {
     location.href="letter-receive.html?"+"letterId="+encodeURI(_letterId);
 }
 
-
-
-
-// function(){
-//     // 无新信件
-//     // mui.alert("当前无新信件");
-//     // 存在新信件
-//     mui.confirm('存在新信件，是否收取？', '', ['拒收','接收'], function(e) {
-//         if(e.index == 0) {
-//             alert("已拒收");
-//         }else{
-//             alert("已接收");
-//         }
-//     });
-//     mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
-// }
+/*加载个人中心信息*/
+function load_person_info() {
+    var userInfo=JSON.parse(localStorage.getItem("userInfo"));
+    $("#person-name").text(userInfo["name"]);
+    $("#person-email").text(userInfo["email"]);
+    var gend = userInfo["gender"];
+    if(gend==1){
+        $("#person-icon") .attr("src","img/user3.png");
+    }else {
+        $("#person-icon") .attr("src","img/user4.png");
+    }
+}
