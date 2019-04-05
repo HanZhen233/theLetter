@@ -41,11 +41,14 @@ function displayMessages() {
 }
 /*展示每条消息*/
 function listMessage(_message,_sender,_receiver) {
-
-    var messageInfo="<p class=\"dynamic\" class='address-from'>亲爱的："+_receiver+"</p>\n" +
+    // var _date = new Date(parseInt(_message["timestamp"])).toLocaleDateString();
+    var _date=_message["timestamp"].substring(0,10);
+    var _time=_message["timestamp"].substring(11,16)
+    var messageInfo="<p class=\"dynamic\" class='address-from'>亲爱的"+_receiver+"：</p>\n" +
         "        <textarea class=\"letterdef-from\">"+_message["content"]+"</textarea>\n" +
         "        <p class=\"dynamic\"id=\"sender-from\">"+_sender+"</p>\n" +
-        "        <p class=\"dynamic\"id=\"time-from\">"+_message["timestamp"]+"</p>"
+        "        <p class=\"dynamic\"id=\"time-from\">"+_date+"</p>" +
+        "<p class=\"dynamic\"id=\"time-from\">"+_time+"</p>";
     $("#messagesInfo").append(messageInfo);
 }
 

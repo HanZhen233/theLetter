@@ -9,9 +9,15 @@
 		<title>信客-个人中心</title>
 		<link href="css/mui.min.css"rel="stylesheet"/>
 		<script src="js/mui.min.js"></script>
+		<!--jQuery-->
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript"charset="utf-8">
 			mui.init();
 		</script>
+		<!--url-->
+        <script type="text/javascript" src="js/url_str.js"></script>
+        <!--letter-->
+        <script type="text/javascript" src="js/letter.js"></script>
 		<style>
 			/* 功能列表文字 */
 			span {
@@ -33,14 +39,14 @@
 
 	</head>
 
-	<body>
+	<body onload="load_person_info()">
 
 		<!-- 用户信息区域 -->
 		<ul class="mui-table-view">
 			<li class="mui-table-view-cell">
-				<img style="margin:15px;height:60px;width:60px;"class="mui-pull-right"src="img/user1.png"/>
-				<div style="font-size:20px;color:#60084e;margin:15px;">用户X</div>
-				<div style="font-size:14px;color:grey;margin:15px;">我不曾记得，你的名字。</div>
+				<img style="margin:15px;height:60px;width:60px;"class="mui-pull-right"src="img/user1.png"id="person-icon"/>
+				<div style="font-size:20px;color:#60084e;margin:15px;"id="person-name">用户X</div>
+				<div style="font-size:14px;color:grey;margin:15px;"id="person-email">我不曾记得，你的名字。</div>
 			</li>
 		</ul>
 		
