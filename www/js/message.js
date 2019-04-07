@@ -43,7 +43,7 @@ function displayMessages() {
 function listMessage(_message,_sender,_receiver) {
     // var _date = new Date(parseInt(_message["timestamp"])).toLocaleDateString();
     var _date=_message["timestamp"].substring(0,10);
-    var _time=_message["timestamp"].substring(11,16)
+    var _time=_message["timestamp"].substring(11,16);
     var messageInfo="<p class=\"dynamic\" class='address-from'>亲爱的"+_receiver+"：</p>\n" +
         "        <textarea class=\"letterdef-from\">"+_message["content"]+"</textarea>\n" +
         "        <p class=\"dynamic\"id=\"sender-from\">"+_sender+"</p>\n" +
@@ -82,16 +82,21 @@ function replyMessage () {
             letterId:letterId,
             content :contentString
         },
-        dataType: 'json',
+        async:false,
+        dataType: 'text',
         crossDomain: true,
         xhrFields: {withCredentials: true},  //一对“文件名-文件值”在本机设置XHR对象。例如，用它来设置withCredentials为true的跨域请求。 用户固定PHPSESSID不变
-        success: function(data) {
+        success: function(_data) {
             // mui.alert("发送成功");
-            alert("发送成功");
-            location.href="index.html";
+            if(_data=="true") {
+                alert("回复成功");
+                location.href="letter.html";
+            }
+            // location.href="index.html";
         },
         error: function() {
-            alert("发送失败");
+            alert("回复失败");
+            location.href="letter.html";
         }
     });
 

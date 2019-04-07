@@ -10,7 +10,6 @@ function load_sender_name() {
 /*随机发信*/
 function sendLetter() {
     var contentString=document.getElementById("letterdef-to").value;
-    // mui.toast(contentString);
     if (contentString==null||contentString==""||contentString==
         "第一封信总是很难，不如聊一聊你最近看过的一本书，或者一部印象深刻的电影，说不定TA也看过呢？")
     {
@@ -18,24 +17,31 @@ function sendLetter() {
         return null;
     }else if (contentString.length<20){
         alert("输入内容长度应该超过20");
+        // document.getElementById("letterdef-to").defaultValue=contentString;
+        // $("#letterdef-to").text(contentString);
         return null;
     }
+    // alert(contentString)
     $.ajax({
         url: sendLetterURL,
         type: "POST",
         data:{
             content :contentString
         },
-        dataType: 'json',
+        async:false,
+        dataType: 'text',
         crossDomain: true,
-        xhrFields: {withCredentials: true},  //一对“文件名-文件值”在本机设置XHR对象。例如，用它来设置withCredentials为true的跨域请求。 用户固定PHPSESSID不变
-        success: function(data) {
-           // mui.alert("发送成功");
-            alert("发送成功");
-            location.href="index.html";
+        xhrFields: {withCredentials: true},
+        success: function(_data) {
+            // alert(_data);
+            if(_data=="true") {
+                alert("发送成功");
+               location.href="index.html";
+            }
         },
         error: function() {
             alert("发送失败");
+            window.location.href = "index.html";
         }
     });
 }
@@ -101,15 +107,15 @@ function unlockLetter(_letterId) {
 
 /*获得所有的自己发送或者收到的信件*/
 function getLetterList() {
+
     $.ajax({
         url: getLetterListURL,
         type: "GET",
         crossDomain: true,
         xhrFields: {withCredentials: true},  //一对“文件名-文件值”在本机设置XHR对象。例如，用它来设置withCredentials为true的跨域请求。 用户固定PHPSESSID不变
-        success: function(letters) {
-            if (letters==null)
-                return;
-            localStorage.setItem("letters",JSON.stringify(letters));
+        success: function(_letters) {
+            _letters=JSON.stringify(_letters);
+            localStorage.setItem("letters",_letters);
         },
         error: function() {
             alert("网络错误")
@@ -126,13 +132,13 @@ function getLetterList() {
 *
 * */
 function displayLetters() {
+    getLetterList();
     var userInfo = JSON.parse(localStorage.getItem("userInfo"));
     var userId = userInfo["userId"];
-
     var letters = JSON.parse(localStorage.getItem("letters"));
-    if(letters==null||letters==[]||letters=={}||letters==""){
+    // alert(localStorage.getItem("letters"));
+    if(letters==""){
         $("#letterList").append("<p style='text-align:center;'>当前无信件</p>");
-        return;
     }
     for (var index in letters) {
         var letter = letters[index];//信件
