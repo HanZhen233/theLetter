@@ -14,3 +14,4 @@ var receiverLetterURL=URLStr+"receiverLetter";
 var unlockLetterURL=URLStr+"unlockLetter";
 // 回复消息(信件)
 var sentMessageURL=URLStr+"sentMessage";
+var logoutURL=URLStr+"logout";

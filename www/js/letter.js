@@ -132,6 +132,7 @@ function getLetterList() {
 *
 * */
 function displayLetters() {
+
     getLetterList();
     var userInfo = JSON.parse(localStorage.getItem("userInfo"));
     var userId = userInfo["userId"];
@@ -195,4 +196,7 @@ function load_person_info() {
     }else {
         $("#person-icon") .attr("src","img/user4.png");
     }
+}
+function deleteLetters() {
+    localStorage.removeItem("letters");
 }
